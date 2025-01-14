@@ -1,0 +1,559 @@
+*{
+  box-sizing: border-box;
+  font-family: Cinzel, Palatino Linotype, sans-serif;
+}
+html{
+  scroll-behavior: smooth;
+}
+body { 
+  margin: 0;
+  background: linear-gradient(to right, #ffffff, #ffe4e1);
+}
+
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  font-weight: bolder;
+}
+
+.navbar {
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar.resized {
+  height: 60px; /* Adjust as per your design */
+  background-color: #f8f9fa; /* Example color */
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.navbar-collapse.active {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+
+#logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+}
+
+#navbar-right {
+  display: flex;
+  gap: 15px;
+}
+
+#navbar-right a {
+  color: black;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+#navbar-right a:hover {
+  background-color: #ddd;
+}
+
+#navbar-right a.active {
+  background-color: #d1928f;
+  color: white;
+}
+
+#toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: black;
+}
+
+/* Responsive Navbar Styles */
+@media (max-width: 768px) {
+  #navbar-right {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: white;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  #navbar-right a {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+
+  #navbar-right.show {
+    display: flex;
+  }
+
+  #toggle {
+    display: block;
+  }
+}
+
+.background-image {
+  height: 100vh; /* Full viewport height */
+  width: 98.9vw; /* Full viewport width */
+  background-image: url('/LandingPage/LandingPageImages/LandingPageBack1.jpg');
+  background-size: cover; /* Ensures the image covers the entire area */
+  background-position: center top; /* Aligns the image to the top center */
+  background-repeat: no-repeat; /* Prevents tiling */
+}
+
+
+#section2 {
+  padding-right: 7rem;
+}
+
+#section2 img {
+  width: 100%; /* Ensures the image resizes properly */
+  max-width: 700px; /* Limits the image width on larger screens */
+  height: auto; /* Maintains aspect ratio */
+  border-radius: 10px; /* Adds slight rounding for aesthetics */
+}
+
+#sec2inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap; /* Ensures elements stack on smaller screens */
+  gap: 2rem; /* Adds spacing between items */
+  text-align: center; /* Centers text content */
+}
+
+#sec2inin {
+  flex: 1;
+  min-width: 300px; /* Ensures text area doesn't shrink too much */
+}
+
+#sec2inin p {
+  font-size: 2rem; /* Adjusts text size for better responsiveness */
+  line-height: 1.6;
+  padding-bottom: 50px;
+  margin: 0 auto;
+}
+
+#sec2inin button {
+  height: 50px;
+  width: 160px;
+  margin: 0.5rem; /* Adds spacing between buttons */
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bolder;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  background-color: #d1928f;
+}
+
+#sec2inin button:hover {
+  background-color: #D88D73; /* Adds a hover effect */
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  #section2 {
+    padding: 1rem; /* Adjusts padding for a cleaner layout */
+    text-align: center; /* Centers content for consistency */
+  }
+
+  #sec2inner {
+    flex-direction: column-reverse; /* Stacks elements vertically */
+    align-items: center; /* Centers content horizontally */
+    gap: 1.5rem; /* Adds space between stacked items */
+  }
+
+  #section2 img {
+    max-width: 90%; /* Ensures image fits within the screen width */
+    border-radius: 10px; /* Keeps the rounded aesthetic */
+    margin: 0 auto; /* Centers the image */
+  }
+
+  #sec2inin {
+    padding: 1rem; /* Adds spacing around the text content */
+  }
+
+  #sec2inin p {
+    font-size: 1.5rem; /* Scales down the font size for readability */
+    line-height: 1.4; /* Adjusts line spacing for better readability */
+    padding-bottom: 1rem; /* Adds spacing below the text */
+  }
+
+  #sec2inin button {
+    width: 90%; /* Buttons occupy most of the screen width */
+    max-width: 300px; /* Prevents buttons from becoming too large */
+    height: 50px; /* Keeps button height consistent */
+    font-size: 1rem; /* Adjusts font size for better usability */
+    margin: 0.5rem auto; /* Centers buttons and adds spacing */
+    background-color: #D88D73; /* Matches the primary color scheme */
+    color: #fff; /* Makes the button text stand out */
+    border: none; /* Removes default borders */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds subtle shadow for depth */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Adds smooth transitions */
+  }
+
+  #sec2inin button:hover {
+    background-color: #D88D73; /* Slightly darker hover effect */
+    transform: scale(1.05); /* Adds a slight zoom effect */
+  }
+}
+
+
+
+.divider {
+  padding: 30px;
+  font-size: 3.2rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.divider::before, .divider::after {
+  flex: 1;
+  content: '';
+  padding: 0.5px;
+  background-color: rgb(7, 7, 7);
+  margin: 5px;
+}
+
+@media (max-width: 768px) {
+  .divider {
+    padding: 15px; /* Reduces padding for smaller screens */
+    font-size: 1.8rem; /* Adjusts font size for readability */
+  }
+
+  .divider::before, .divider::after {
+    margin: 3px; /* Reduces spacing around the divider lines */
+  }
+}
+
+#triogrid {
+  height: auto;
+  display: grid;
+  max-width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-left: 9rem;
+  margin-right: 9rem;
+  margin-bottom: 2rem;
+  
+}
+
+#triogrid img {
+  width: 100%;
+  height: calc(70vh - 20px); /* Slightly shorter height */
+  object-fit: cover; /* Ensures the image fits without distortion */
+  border-radius: 15px;
+  transition: all ease-in-out 0.5s;
+  filter: blur(2px);
+}
+
+@media (max-width: 768px) {
+  #triogrid {
+    grid-template-columns: 1fr; /* Switch to a single-column layout for smaller screens */
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
+
+  #triogrid img {
+    height: calc(70vh - 10px); /* Shorter height for smaller screens */
+    width: 100%;
+  }
+}
+
+/* New CSS for overlay text */
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay-text {
+  position: absolute;
+  bottom: 30%; /* Position at the bottom */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%);
+  color: white;
+  font-size: 1.5rem; /* Adjust font size as needed */
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  opacity: 1; /* Hidden by default */
+}
+
+
+
+@media (max-width: 768px) {
+  .overlay-text {
+    font-size: 1.2rem; /* Smaller text for smaller screens */
+  }
+}
+
+
+
+#section4 {
+  display: flex;
+  flex-direction: column; /* Ensures vertical alignment of content */
+  align-items: center; /* Centers content horizontally */
+  text-align: center; /* Centers the text within the content */
+  margin: 0 auto; /* Centers the section on the page */
+  padding: 2rem; /* Adds padding for spacing */
+  max-width: 80%; /* Limits the width to avoid stretching on large screens */
+}
+
+#section4 h1 {
+  font-size: 2.8rem; /* Adjust heading size */
+  margin-bottom: 1rem; /* Adds spacing below the heading */
+}
+
+#section4 p {
+  font-size: 1.5rem; /* Adjust paragraph font size for readability */
+  line-height: 1.8; /* Improves line spacing */
+  margin: 0 auto; /* Centers the text block */
+  text-transform: none; /* Ensures sentence case */
+  font-weight: 400; /* Uses the regular weight of Cinzel */
+}
+
+/* Responsive design for small screens */
+@media (max-width: 768px) {
+  #section4 {
+    padding: 1.5rem; /* Reduce padding for smaller screens */
+    max-width: 90%; /* Increase width to utilize available space */
+  }
+
+  #section4 h1 {
+    font-size: 2rem; /* Reduce heading size for better fit */
+    margin-bottom: 0.8rem; /* Adjust spacing */
+  }
+
+  #section4 p {
+    font-size: 1rem; /* Slightly smaller font for better readability */
+    line-height: 1.6; /* Adjust line spacing for compact layout */
+  }
+}
+
+/* Extra small screens (max-width: 480px) */
+@media (max-width: 480px) {
+  #section4 {
+    padding: 1rem; /* Further reduce padding */
+  }
+
+  #section4 h1 {
+    font-size: 1.8rem; /* Smaller heading size */
+    margin-bottom: 0.6rem; /* Adjust spacing */
+  }
+
+  #section4 p {
+    font-size: 0.9rem; /* Compact paragraph font size */
+    line-height: 1.5; /* Adjust line spacing */
+  }
+}
+
+
+#section5 {
+  display: flex;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  /* height: 100vh;
+  /* padding: 2rem; Adds spacing around the section */
+  box-sizing: border-box; /* Ensures padding is included in height/width calculations */
+}
+
+#section5 iframe {
+  width: 900px;
+  max-width: 90%; /* Limits the width for responsiveness */
+  height: 500px; /* Maintains aspect ratio */
+  border-radius: 10px; /* Adds slight rounding for aesthetics */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds a subtle shadow */
+}
+
+/* Container for the iframe */
+/* Container for the iframe */
+.iframe-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px; /* Max width for normal screen resolution */
+  height: 500px; /* Fixed height for normal screen resolution */
+  margin: 0 auto; /* Center the iframe */
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+/* Responsive iframe on smaller screens */
+@media screen and (max-width: 600px) {
+  .iframe-container {
+    padding-bottom: 56.25%; /* Aspect ratio of 16:9 */
+    height: 0; /* Set height to 0 for responsiveness */
+  }
+
+  .iframe-container iframe {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+#contact_main {
+  float: right;
+  max-width: 50%;
+}
+
+#whatsapp_button {
+  background-color: #1a7f72;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 2%;
+  padding-top: 2%;
+  color: whitesmoke; 
+  margin-bottom: 5%;
+  cursor: pointer;
+}
+
+#instabutton {
+  background: linear-gradient(to right, #E1306C, #F58529);
+  padding-left: 2%;
+  padding-right: 2.5%;
+  padding-bottom: 2%;
+  padding-top: 2%;
+  color: whitesmoke;
+  cursor: pointer; 
+}
+
+#form{
+  max-width: 50%;
+  margin-left: 0px;
+  padding: 0%;
+  /* background-color: #e11d48; */
+}
+
+#form input,#form select, #form textarea, #form button{
+  font-family: 'Arial', sans-serif; /* Replace with a mixed-case supporting font */
+    text-transform: none; /* Ensure no forced transformation */
+  height: 50px;
+  width: 600px;
+  font-size: large;
+  margin-top: 3%;
+  /* margin-left: 3%; */
+  max-width: 100%;
+}
+
+#form textarea{
+  height: 10vh;
+  max-height: 25vh;
+}
+
+#section7{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+@media screen and (max-width: 600px) {
+  #section7 {
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text within the section */
+    padding: 1rem; /* Add padding for smaller screens */
+    gap: 1.5rem; /* Add spacing between form and contact sections */
+  }
+
+  #form, #contact_main {
+    width: 90%; /* Take most of the screen width */
+    max-width: 100%; /* Ensure no overflow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for separation */
+    border-radius: 8px; /* Add rounded corners */
+    padding: 1.5rem; /* Add padding inside the sections */
+    margin: 0 auto; /* Center the sections */
+    background-color: #fff; /* Keep white background for sections */
+  }
+
+  #form input, 
+  #form select, 
+  #form textarea, 
+  #form button {
+    width: 100%; /* Full width for inputs */
+    height: 50px; /* Allow flexible height for smaller screens */
+    font-size: medium; /* Adjust font size for readability */
+    margin: 0.5rem 0; /* Add space between elements */
+    padding-left: auto;
+    padding-right: auto;
+  }
+
+  #form textarea {
+    height: 100px; /* Adjust height for smaller screens */
+  }
+
+  #contact_main {
+    text-align: center; /* Center-align text content */
+  }
+
+  #contact_main h1, 
+  #form h1 {
+    font-size: 1.5rem; /* Adjust heading size for smaller screens */
+    margin-bottom: 1rem; /* Add spacing below headings */
+  }
+
+  #contact_main p, 
+  #contact_main span, 
+  #form button {
+    font-size: 1.7rem; /* Adjust font size for readability */
+  }
+
+  #whatsapp_button, 
+  #instabutton {
+    width: 100%; /* Buttons take full width */
+    padding: 0.75rem; /* Add padding for touch-friendly buttons */
+    font-size: 1rem; /* Adjust font size */
+    margin-bottom: 1rem; /* Add space between buttons */
+    border-radius: 5px; /* Rounded corners for buttons */
+  }
+
+  /* Ensure the form and contact sections don't overlap or overflow */
+  #form textarea {
+    height: auto;
+  }
+}
+
+#submit {
+  background: linear-gradient(to right, #0F52BA, #4682B4);
+}
+
+#submit:hover {
+  background: linear-gradient(to right, #0D47A1, #3E7BBF); 
+  cursor: pointer;
+  transition: 0.3s;
+}
+
