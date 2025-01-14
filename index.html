@@ -1,1 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/LandingPage/LandingPage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Rajput Royals</title>
+</head>
+
+<body>
+    <div id="navbar">
+        <a href="/index.html" id="logo">RAJPUT ROYALS</a>
+        <div id="navbar-right">
+            <a class="active" href="#" id="home-btn">Home</a>
+            <a href="/AboutUs/AboutUs.html">About Us</a>
+            <a href="/Gallery/Gallery.html">Gallery</a>
+            <a href="/Services/Services.html">Services</a>
+            <a href="#section7">Contact Us</a>
+        </div>
+        <div id="toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+
+
+    <div class="background-image"></div>
+    <div id="section2">
+        <div class="divider">A PERFECT VENUE FOR <br> A PERFECT WEDDING </div>
+        <div id="sec2inner">
+            <div id="sec2inin">
+                <p>Welcome to Rajput Royals<br> Destination for your<br> unforgettable <br><span id="typewriter"></span> </p>
+                <div style="font-size: 0px;">
+                    <a href="https://api.whatsapp.com/send/?phone=919822544956&text&type=phone_number&app_absent=0">
+                        <button>Schedule A Visit</button>
+                        </a><a href="#section7"><button>Contact Us</button></a>
+                </div>
+            </div>
+            <img src="/LandingPage/LandingPageImages/LandingPageTaglineImage.jpg">
+        </div>
+    </div>
+
+    <div id="section3">
+        <div class="divider">ABOUT US</div>
+        <div id="triogrid">
+            <div id="design" class="image-container">
+                <img src="/LandingPage/LandingPageImages/LandingPageDeco.jpg" alt="Design">
+                <div class="overlay-text">Lavish Design And Decor</div>
+            </div>
+            <div id="weddings" class="image-container">
+                <img src="/LandingPage/LandingPageImages/LandingPageMarriage.jpg" alt="Weddings">
+                <div class="overlay-text">Mesmerizing Weddings & Events</div>
+            </div>
+            <div id="services" class="image-container">
+                <img src="/LandingPage/LandingPageImages/LandingPageDesign.jpg" alt="Services">
+                <div class="overlay-text">Services That Inspire</div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div id="section4">
+        <h1>A Venue That Combines Luxury with Warm Hospitality!</h1>
+        <p>
+            Rajput Royals, one of the largest and most prestigious banquet halls in the Sangli-Miraj region. Sprawling
+            across 7 acres of lush, serene surroundings, tucked away from the hustle and bustle of the city, yet easily
+            accessible. Our venue is located in close proximity to the Miraj Bus Stand on the Ratnagiri-Nagpur Highway,
+            offering a perfect blend of tranquility and accessibility. Ample parking space ensures your guests can enjoy
+            the event with ease and convenience. We have a capacity to comfortably host flexible number of guests.
+            Rajput Royals is designed to host grand weddings, receptions, and other special celebrations. The venue
+            features a beautifully designed haldi stage for traditional ceremonies, a spacious dining room, and a
+            dedicated buffet section to cater to your culinary needs. For those looking to celebrate outdoors, our open
+            lawn provides an ideal setting for memorable moments. <br> At Rajput Royals, we are dedicated to turning
+            your dreams into reality, creating an unforgettable experience that you and your guests will cherish
+            forever.
+        </p>
+    </div>
+
+    <!-- <div class="divider">Catch the vibe of every celebration</div> -->
+
+    <!-- <div id="section5">
+        <iframe class="responsive-iframe" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+    </div> -->
+
+
+    <div id="section6">
+        <div class="divider">Visit Our Venue</div>
+        <center>
+            <div class="iframe-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6186.837059386153!2d74.62753617428613!3d16.821406303110304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc1223836b9914d%3A0x15bb0397ebf5b01!2sRajput%20Royals%2C%20Miraj!5e0!3m2!1sen!2sin!4v1729003973072!5m2!1sen!2sin"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </center>
+    </div>
+
+    <div class="divider">Contact Us</div>
+
+    <div id="section7">
+        <div id="form">
+            <h1 style="font-weight: bold;">Drop Us An Enquiry</h1>
+            <form id="contactForm" onsubmit="submitForm(event)">
+                <input type="text" id="name" placeholder="Enter Your Name" required> <br>
+                <input type="number" id="number" placeholder="Enter Your Mobile Number" required> <br>
+                <input type="email" id="email" placeholder="Enter your email id" required> <br>
+                <input type="date" id="eventdate" required> <br>
+                <select id="type" required>
+                    <option value="select" selected>Enter Your Event</option>
+                    <option value="weddings">Wedding</option>
+                    <option value="reception">Reception</option>
+                    <option value="Engagement">Engagement</option>
+                    <option value="birthday">Birthday</option>
+                    <option value="other">Other</option>
+                </select><br>
+                <textarea placeholder="Additional Message..."></textarea> <br>
+                <button id="submit">Submit</button>
+            </form>
+        </div>
+
+        <div id="contact_main">
+            <h1>It would be Great to See You in Person</h1>
+            <br>
+            <p style="font-size: 1.5rem;">We love connecting with you!<br> Feel free to visit us during usual business hours</p>
+            <br>
+            <a href="https://api.whatsapp.com/send/?phone=919822544956&text&type=phone_number&app_absent=0"><button
+                    id="whatsapp_button" style="font-size: 1.1rem; font-weight: bold;">Contact us on Whatsapp</button></a>
+            <br>
+            <a href="https://www.instagram.com/rajputroyals_miraj/?hl=en">
+                <button id="instabutton" style="font-size: 1.1rem; font-weight: bold;"> Follow Us on Instagram </button>
+            </a>
+            <br>
+            <h1><span>Rajput Royals,Miraj</span><br></h1>
+            <p style="font-size: 1.3rem;">RJ9H+Q32 Rajput Royals, Kolhapur Road, Miraj,<br> Sangli Miraj Kupwad, Maharashtra 416410</p>
+            <p style="font-size: 1.5rem; margin-top: 5%;"><b>+91 98225 44956</b></p>
+            <br>
+        </div>
+    </div>
+
+
+    <script src="/LandingPage/LandingPage.js"></script>
+</body>
+
+</html>
