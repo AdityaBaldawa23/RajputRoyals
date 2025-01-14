@@ -117,7 +117,7 @@ body {
 .background-image {
   height: 100vh; /* Full viewport height */
   width: 98.9vw; /* Full viewport width */
-  background-image: url('LandingPage/LandingPageImages/LandingPageBack1.jpg');
+  background-image: url('LandingPageImages/LandingPageBack1.jpg');
   background-size: cover; /* Ensures the image covers the entire area */
   background-position: center top; /* Aligns the image to the top center */
   background-repeat: no-repeat; /* Prevents tiling */
