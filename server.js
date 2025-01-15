@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const mongoURI = process.env.MONGO_URI || 'mongodb+srv://adityabaldawa23:<1YVoFLGsP2l9aqdh>@cluster0.soki0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'; // Use Atlas URI here
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const nodemailer = require('nodemailer'); // Import Nodemailer
@@ -14,10 +15,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/rajputRoyals', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB connected successfully'))
     .catch(err => console.error('MongoDB connection error:', err));
 
