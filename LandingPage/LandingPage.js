@@ -46,6 +46,7 @@ document.querySelector("#home-btn").addEventListener("click", (event) => {
 async function submitForm(event) {
   event.preventDefault();
 
+  // Get form values
   const name = document.getElementById("name").value;
   const number = document.getElementById("number").value;
   const email = document.getElementById("email").value;
@@ -53,13 +54,15 @@ async function submitForm(event) {
   const eventType = document.getElementById("type").value;
   const message = document.querySelector("textarea").value;
 
+  // Form validation: check if required fields are filled
   if (!name || !number || !email || !eventDate || eventType === "select") {
     alert("Please fill in all required fields");
     return;
   }
 
   try {
-    const response = await fetch("http://localhost:5000/api/form", {
+    // Send form data to the server via POST request
+    const response = await fetch("https://rajputroyals.onrender.com/api/form", { // Use the live URL here
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -73,17 +76,26 @@ async function submitForm(event) {
     });
 
     if (response.ok) {
-      alert("Form submitted successfully");
+      // Show success message and reset the form if submission is successful
+      alert("Form submitted successfully!");
       document.getElementById("contactForm").reset();
     } else {
+      // Handle non-OK responses (e.g., 400, 500 errors)
       const errorData = await response.json();
-      alert(`Error: ${errorData.error}`);
+      alert(`Error: ${errorData.error || 'An error occurred while submitting the form'}`);
     }
   } catch (error) {
+    // Log error for debugging and show user-friendly error message
     console.error("Error submitting form:", error);
     alert("Failed to submit the form. Please try again.");
   }
+  finally {
+    // Re-enable the submit button and hide the loading spinner
+    submitButton.disabled = false;
+    document.getElementById("loadingSpinner").style.display = "none"; // Hide loading spinner
+  }
 }
+
 
 // Get the current date in YYYY-MM-DD format
 const today = new Date().toISOString().split("T")[0];
@@ -102,7 +114,7 @@ element.style.color = "#191970";
 element.style.fontWeight = "bolder"
 // element.style.paddingTop = "10px"
 
-function typeWriter() {
+function typeWriter() { 
   const currentWord = words[wordIndex];
 
   // Type the current word
