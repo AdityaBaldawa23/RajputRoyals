@@ -44,57 +44,81 @@ document.querySelector("#home-btn").addEventListener("click", (event) => {
 });
 
 async function submitForm(event) {
-  event.preventDefault();
+  event.preventDefault(); // Prevent default form submission
 
-  // Get form values
-  const name = document.getElementById("name").value;
-  const number = document.getElementById("number").value;
-  const email = document.getElementById("email").value;
-  const eventDate = document.getElementById("eventdate").value;
-  const eventType = document.getElementById("type").value;
-  const message = document.querySelector("textarea").value;
+  // Reset error messages
+  const errorMessages = document.querySelectorAll('.error');
+  errorMessages.forEach((el) => (el.textContent = ''));
 
-  // Form validation: check if required fields are filled
-  if (!name || !number || !email || !eventDate || eventType === "select") {
-    alert("Please fill in all required fields");
-    return;
+  const name = document.getElementById('name').value.trim();
+  const number = document.getElementById('number').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const eventDate = document.getElementById('eventdate').value.trim();
+  const eventType = document.getElementById('type').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  let isValid = true;
+
+  // Validation logic
+  if (!name || name.length < 3) {
+      document.getElementById('nameError').textContent = 'Name must be at least 3 characters long.';
+      isValid = false;
   }
+  if (!number || number.length < 10 || isNaN(number)) {
+      document.getElementById('numberError').textContent = 'Enter a valid 10-digit mobile number.';
+      isValid = false;
+  }
+  if (!email || !/\S+@\S+\.\S+/.test(email)) {
+      document.getElementById('emailError').textContent = 'Enter a valid email address.';
+      isValid = false;
+  }
+  if (!eventDate) {
+      document.getElementById('dateError').textContent = 'Please select a valid event date.';
+      isValid = false;
+  }
+  if (eventType === 'select') {
+      document.getElementById('typeError').textContent = 'Please select an event type.';
+      isValid = false;
+  }
+  if (message.length > 200) {
+      document.getElementById('messageError').textContent = 'Message must not exceed 200 characters.';
+      isValid = false;
+  }
+
+  if (!isValid) {
+      return; // Stop submission if validation fails
+  }
+
+  // Show the loading spinner
+  document.getElementById('loadingSpinner').style.display = 'block';
 
   try {
-    // Send form data to the server via POST request
-    const response = await fetch("https://rajputroyals.onrender.com/api/form", { // Use the live URL here
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name,
-        number,
-        email,
-        eventDate,
-        eventType,
-        message,
-      }),
-    });
+      const response = await fetch('https://your-backend-url/submit-form', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ name, number, email, eventDate, eventType, message }),
+      });
 
-    if (response.ok) {
-      // Show success message and reset the form if submission is successful
-      alert("Form submitted successfully!");
-      document.getElementById("contactForm").reset();
-    } else {
-      // Handle non-OK responses (e.g., 400, 500 errors)
-      const errorData = await response.json();
-      alert(`Error: ${errorData.error || 'An error occurred while submitting the form'}`);
-    }
+      const result = await response.json();
+
+      // Hide the loading spinner
+      document.getElementById('loadingSpinner').style.display = 'none';
+
+      if (response.ok) {
+          alert(result.message);
+          document.getElementById('contactForm').reset(); // Reset the form
+      } else {
+          alert('Error: ' + result.error);
+      }
   } catch (error) {
-    // Log error for debugging and show user-friendly error message
-    console.error("Error submitting form:", error);
-    alert("Failed to submit the form. Please try again.");
-  }
-  finally {
-    // Re-enable the submit button and hide the loading spinner
-    submitButton.disabled = false;
-    document.getElementById("loadingSpinner").style.display = "none"; // Hide loading spinner
+      // Hide the loading spinner
+      document.getElementById('loadingSpinner').style.display = 'none';
+      alert('Error submitting the form.');
   }
 }
+
 
 
 // Get the current date in YYYY-MM-DD format

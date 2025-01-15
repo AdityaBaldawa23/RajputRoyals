@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="LandingPage/LandingPage.css">
+    <link rel="icon" href="/favicon_io/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <title>Rajput Royals</title>
@@ -89,9 +90,9 @@
     <div class="divider">Contact Us</div>
 
     <div id="section7">
-        <div id="form">
+        <!-- <div id="form">
             <h1 style="font-weight: bold;">Drop Us An Enquiry</h1>
-            <form id="contactForm" onsubmit="submitForm(event)" action="https://rajputroyals.onrender.com">
+            <form id="contactForm" onsubmit="submitForm(event)">
                 <input type="text" id="name" placeholder="Enter Your Name" required> <br>
                 <input type="number" id="number" placeholder="Enter Your Mobile Number" required> <br>
                 <input type="email" id="email" placeholder="Enter your email id" required> <br>
@@ -106,15 +107,8 @@
                 </select><br>
                 <textarea placeholder="Additional Message..."></textarea> <br>
                 <button id="submit">Submit</button>
-                <!-- Add a loading spinner inside your HTML (you can place this anywhere in the form or a modal) -->
-                <div id="loadingSpinner" style="display:none;">
-                    <img src="https://www.example.com/spinner.gif" alt="Loading..." />
-                    <!-- Use your spinner GIF or CSS -->
-                    <p>Submitting...</p>
-                </div>
-
             </form>
-        </div>
+        </div> -->
 
         <div id="contact_main">
             <h1>It would be Great to See You in Person</h1>
@@ -134,8 +128,30 @@
         </div>
     </div>
 
-    <script src="LandingPage/LandingPage.js"></script>
+    <div id="footer">
+        <div id="footer-content">
+            <div id="footer-left">
+                <h1>About Rajput Royals</h1>
+                <p>Your perfect venue for grand weddings,<br> receptions, and unforgettable events.</p>
+            </div>
+            <div id="footer-right">
+                <h3>Follow Us</h3>
+                <div id="social-links">
+                    <a href="https://www.instagram.com/rajputroyals_miraj/?hl=en" target="_blank" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://api.whatsapp.com/send/?phone=919822544956&text&type=phone_number&app_absent=0" target="_blank" class="social-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="footer-bottom">
+            <p>&copy; 2025 Rajput Royals. All Rights Reserved.</p>
+        </div>
+    </div>
 
+    <script src="LandingPage/LandingPage.js"></script>
 </body>
 
 </html>
