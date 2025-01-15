@@ -2,5 +2,9 @@
   "homepage": "https://adityabaldawa23.github.io/RajputRoyals",
   "dependencies": {
     "nodemailer": "^6.9.16"
-  }
+  },
+  "scripts": {
+  "start": "node server.js"
+}
+
 }
