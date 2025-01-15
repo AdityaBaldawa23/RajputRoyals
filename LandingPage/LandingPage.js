@@ -43,131 +43,126 @@ document.querySelector("#home-btn").addEventListener("click", (event) => {
   });
 });
 
-async function submitForm(event) {
-  event.preventDefault(); // Prevent default form submission
+// async function submitForm(event) {
+//   event.preventDefault(); // Prevent default form submission
 
-  // Reset error messages
-  const errorMessages = document.querySelectorAll('.error');
-  errorMessages.forEach((el) => (el.textContent = ''));
+//   // Reset error messages
+//   const errorMessages = document.querySelectorAll('.error');
+//   errorMessages.forEach((el) => (el.textContent = ''));
 
-  const name = document.getElementById('name').value.trim();
-  const number = document.getElementById('number').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const eventDate = document.getElementById('eventdate').value.trim();
-  const eventType = document.getElementById('type').value.trim();
-  const message = document.getElementById('message').value.trim();
+//   const name = document.getElementById('name').value.trim();
+//   const number = document.getElementById('number').value.trim();
+//   const email = document.getElementById('email').value.trim();
+//   const eventDate = document.getElementById('eventdate').value.trim();
+//   const eventType = document.getElementById('type').value.trim();
+//   const message = document.getElementById('message').value.trim();
 
-  let isValid = true;
+//   let isValid = true;
 
-  // Validation logic
-  if (!name || name.length < 3) {
-      document.getElementById('nameError').textContent = 'Name must be at least 3 characters long.';
-      isValid = false;
+//   // Validation logic
+//   if (!name || name.length < 3) {
+//       document.getElementById('nameError').textContent = 'Name must be at least 3 characters long.';
+//       isValid = false;
+//   }
+//   if (!number || number.length < 10 || isNaN(number)) {
+//       document.getElementById('numberError').textContent = 'Enter a valid 10-digit mobile number.';
+//       isValid = false;
+//   }
+//   if (!email || !/\S+@\S+\.\S+/.test(email)) {
+//       document.getElementById('emailError').textContent = 'Enter a valid email address.';
+//       isValid = false;
+//   }
+//   if (!eventDate) {
+//       document.getElementById('dateError').textContent = 'Please select a valid event date.';
+//       isValid = false;
+//   }
+//   if (eventType === 'select') {
+//       document.getElementById('typeError').textContent = 'Please select an event type.';
+//       isValid = false;
+//   }
+//   if (message.length > 200) {
+//       document.getElementById('messageError').textContent = 'Message must not exceed 200 characters.';
+//       isValid = false;
+//   }
+
+//   if (!isValid) {
+//       return; // Stop submission if validation fails
+//   }
+
+//   // Show the loading spinner
+//   document.getElementById('loadingSpinner').style.display = 'block';
+
+//   try {
+//       const response = await fetch('https://your-backend-url/submit-form', {
+//           method: 'POST',
+//           headers: {
+//               'Content-Type': 'application/json',
+//           },
+//           body: JSON.stringify({ name, number, email, eventDate, eventType, message }),
+//       });
+
+//       const result = await response.json();
+
+//       // Hide the loading spinner
+//       document.getElementById('loadingSpinner').style.display = 'none';
+
+//       if (response.ok) {
+//           alert(result.message);
+//           document.getElementById('contactForm').reset(); // Reset the form
+//       } else {
+//           alert('Error: ' + result.error);
+//       }
+//   } catch (error) {
+//       // Hide the loading spinner
+//       document.getElementById('loadingSpinner').style.display = 'none';
+//       alert('Error submitting the form.');
+//   }
+// }
+
+
+
+// // Get the current date in YYYY-MM-DD format
+// const today = new Date().toISOString().split("T")[0];
+
+// // Set the value of the date input to the current date
+// //document.getElementById("eventdate").value = today;
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("Script loaded and DOM is ready");
+
+  const words = ["Weddings", "Engagements", "Birthdays", "Receptions"];
+  let wordIndex = 0;
+  let charIndex = 0;
+  const element = document.getElementById("typewriter");
+
+  if (!element) {
+      console.error("Typewriter element not found!");
+      return;
   }
-  if (!number || number.length < 10 || isNaN(number)) {
-      document.getElementById('numberError').textContent = 'Enter a valid 10-digit mobile number.';
-      isValid = false;
-  }
-  if (!email || !/\S+@\S+\.\S+/.test(email)) {
-      document.getElementById('emailError').textContent = 'Enter a valid email address.';
-      isValid = false;
-  }
-  if (!eventDate) {
-      document.getElementById('dateError').textContent = 'Please select a valid event date.';
-      isValid = false;
-  }
-  if (eventType === 'select') {
-      document.getElementById('typeError').textContent = 'Please select an event type.';
-      isValid = false;
-  }
-  if (message.length > 200) {
-      document.getElementById('messageError').textContent = 'Message must not exceed 200 characters.';
-      isValid = false;
-  }
 
-  if (!isValid) {
-      return; // Stop submission if validation fails
-  }
-
-  // Show the loading spinner
-  document.getElementById('loadingSpinner').style.display = 'block';
-
-  try {
-      const response = await fetch('https://your-backend-url/submit-form', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ name, number, email, eventDate, eventType, message }),
-      });
-
-      const result = await response.json();
-
-      // Hide the loading spinner
-      document.getElementById('loadingSpinner').style.display = 'none';
-
-      if (response.ok) {
-          alert(result.message);
-          document.getElementById('contactForm').reset(); // Reset the form
+  function typeWriter() {
+      const currentWord = words[wordIndex];
+      if (charIndex < currentWord.length) {
+          element.innerHTML += currentWord.charAt(charIndex);
+          charIndex++;
+          setTimeout(typeWriter, 200);
       } else {
-          alert('Error: ' + result.error);
+          setTimeout(eraseWord, 1000);
       }
-  } catch (error) {
-      // Hide the loading spinner
-      document.getElementById('loadingSpinner').style.display = 'none';
-      alert('Error submitting the form.');
   }
-}
 
-
-
-// Get the current date in YYYY-MM-DD format
-const today = new Date().toISOString().split("T")[0];
-
-// Set the value of the date input to the current date
-document.getElementById("eventdate").value = today;
-
-const words = ["Wedding","Engagement", "Birthdays", "Receptions"]; // Array to store words
-let wordIndex = 0; // Track the current word (0 = "Engagement", 1 = "Wedding")
-let charIndex = 0; // Track the character position
-const element = document.getElementById("typewriter");
-
-element.style.display = "inline-block";
-element.style.width = "200px";
-element.style.color = "#191970";
-element.style.fontWeight = "bolder"
-// element.style.paddingTop = "10px"
-
-function typeWriter() { 
-  const currentWord = words[wordIndex];
-
-  // Type the current word
-  if (charIndex < currentWord.length) {
-    element.innerHTML += currentWord.charAt(charIndex);
-    charIndex++;
-    setTimeout(typeWriter, 200); // Adjust the typing speed
-  } else {
-    // Once the word is fully typed, start erasing
-    setTimeout(() => {
-      eraseWord();
-    }, 1000); // Wait for 1 second before starting to erase
+  function eraseWord() {
+      const currentWord = words[wordIndex];
+      if (charIndex > 0) {
+          element.innerHTML = currentWord.substring(0, charIndex - 1);
+          charIndex--;
+          setTimeout(eraseWord, 100);
+      } else {
+          wordIndex = (wordIndex + 1) % words.length;
+          setTimeout(typeWriter, 500);
+      }
   }
-}
 
-function eraseWord() {
-  const currentWord = words[wordIndex];
-
-  // Erase the current word one character at a time
-  if (charIndex > 0) {
-    element.innerHTML = currentWord.substring(0, charIndex - 1);
-    charIndex--;
-    setTimeout(eraseWord, 100); // Adjust the erasing speed
-  } else {
-    // Once the word is erased, move to the next word
-    wordIndex = (wordIndex + 1) % words.length; // Toggle between 0 and 1
-    setTimeout(typeWriter, 500); // Pause before typing the next word
-  }
-}
-
-// Start the typewriter effect when the page is loaded
-window.onload = typeWriter;
+  typeWriter();
+});
