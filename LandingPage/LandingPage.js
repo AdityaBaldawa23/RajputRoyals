@@ -167,3 +167,50 @@ document.addEventListener("DOMContentLoaded", function () {
 
   typeWriter();
 });
+
+let currentSlide = 0;
+const slides = document.querySelectorAll('.faq-slide');
+const indicators = document.querySelectorAll('.indicator');
+
+function showSlide(index) {
+    slides[currentSlide].classList.remove('active');
+    indicators[currentSlide].classList.remove('active');
+    currentSlide = (index + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+    indicators[currentSlide].classList.add('active');
+}
+
+function changeSlide(step) {
+    showSlide(currentSlide + step);
+}
+
+function goToSlide(index) {
+    showSlide(index);
+}
+
+// Target specific links for smooth scrolling
+const smoothScrollLinks = ['#section7', '#faq'];
+
+smoothScrollLinks.forEach(selector => {
+    const link = document.querySelector(`a[href="${selector}"]`);
+    if (link) {
+        link.addEventListener('click', function (e) {
+            e.preventDefault(); // Prevent default jump behavior
+
+            const targetElement = document.querySelector(selector);
+
+            if (targetElement) {
+                // Offset calculation for fixed navbar
+                const headerOffset = document.getElementById('navbar').offsetHeight;
+                const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementPosition - headerOffset;
+
+                // Scroll to the calculated position
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth',
+                });
+            }
+        });
+    }
+});

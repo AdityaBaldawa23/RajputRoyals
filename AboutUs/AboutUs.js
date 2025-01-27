@@ -32,3 +32,4 @@ navLinks.forEach((link) => {
     navbarRight.classList.remove("show");
   });
 });
+

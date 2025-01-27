@@ -1,11 +1,11 @@
-*{
+* {
   box-sizing: border-box;
   font-family: Cinzel, Palatino Linotype, sans-serif;
 }
-html{
+html {
   scroll-behavior: smooth;
 }
-body { 
+body {
   margin: 0;
   background: linear-gradient(to right, #ffffff, #ffe4e1);
 }
@@ -35,19 +35,18 @@ body {
 
 @keyframes fadeIn {
   from {
-      opacity: 0;
-      transform: translateY(-10px);
+    opacity: 0;
+    transform: translateY(-10px);
   }
   to {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 .navbar-collapse.active {
   animation: fadeIn 0.5s ease-in-out;
 }
-
 
 #logo {
   font-size: 24px;
@@ -117,12 +116,11 @@ body {
 .background-image {
   height: 100vh; /* Full viewport height */
   width: 98.9vw; /* Full viewport width */
-  background-image: url('LandingPageImages/LandingPageBack1.jpg');
+  background-image: url("LandingPageImages/LandingPageBack1.jpg");
   background-size: cover; /* Ensures the image covers the entire area */
   background-position: center top; /* Aligns the image to the top center */
   background-repeat: no-repeat; /* Prevents tiling */
 }
-
 
 #section2 {
   padding-right: 7rem;
@@ -169,7 +167,7 @@ body {
 }
 
 #sec2inin button:hover {
-  background-color: #D88D73; /* Adds a hover effect */
+  background-color: #d88d73; /* Adds a hover effect */
   cursor: pointer;
 }
 
@@ -207,7 +205,7 @@ body {
     height: 50px; /* Keeps button height consistent */
     font-size: 1rem; /* Adjusts font size for better usability */
     margin: 0.5rem auto; /* Centers buttons and adds spacing */
-    background-color: #D88D73; /* Matches the primary color scheme */
+    background-color: #d88d73; /* Matches the primary color scheme */
     color: #fff; /* Makes the button text stand out */
     border: none; /* Removes default borders */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds subtle shadow for depth */
@@ -215,7 +213,7 @@ body {
   }
 
   #sec2inin button:hover {
-    background-color: #D88D73; /* Slightly darker hover effect */
+    background-color: #d88d73; /* Slightly darker hover effect */
     transform: scale(1.05); /* Adds a slight zoom effect */
   }
 }
@@ -231,14 +229,14 @@ body {
 }
 
 @keyframes blink {
-  0%, 100% {
+  0%,
+  100% {
     border-color: transparent;
   }
   50% {
     border-color: black;
   }
 }
-
 
 .divider {
   padding: 30px;
@@ -248,9 +246,10 @@ body {
   text-align: center;
 }
 
-.divider::before, .divider::after {
+.divider::before,
+.divider::after {
   flex: 1;
-  content: '';
+  content: "";
   padding: 0.5px;
   background-color: rgb(7, 7, 7);
   margin: 5px;
@@ -262,15 +261,15 @@ body {
     font-size: 1.8rem; /* Adjusts font size for readability */
   }
 
-  #tag{
+  #tag {
     font-size: 1.5rem;
   }
 
-  .divider::before, .divider::after {
+  .divider::before,
+  .divider::after {
     margin: 3px; /* Reduces spacing around the divider lines */
   }
 }
-
 
 #triogrid {
   height: auto;
@@ -281,7 +280,6 @@ body {
   margin-left: 9rem;
   margin-right: 9rem;
   margin-bottom: 2rem;
-  
 }
 
 #triogrid img {
@@ -329,15 +327,11 @@ body {
   opacity: 1; /* Hidden by default */
 }
 
-
-
 @media (max-width: 768px) {
   .overlay-text {
     font-size: 1.2rem; /* Smaller text for smaller screens */
   }
 }
-
-
 
 #section4 {
   display: flex;
@@ -397,7 +391,6 @@ body {
   }
 }
 
-
 #section5 {
   display: flex;
   justify-content: center; /* Centers content horizontally */
@@ -435,7 +428,7 @@ body {
   }
 
   .iframe-container iframe {
-    width: 100%;                
+    width: 100%;
     height: 100%;
   }
 }
@@ -447,6 +440,109 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 15px;
+}
+
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.faq-slide {
+  display: none;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
+  background: #ffffff;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.faq-slide.active {
+  display: block;
+}
+
+.faq-slide h3 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid #d1928f;
+  padding-bottom: 0.3rem;
+}
+
+.faq-slide p {
+  font-size: 1.5rem;
+  color: #666;
+  line-height: 1.5;
+  max-width: 75%;
+  margin-left: 15%;
+  min-height: 60px;
+  max-height: 90px;
+}
+
+button.prev, button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+/* Adjust button positions to avoid content overlap */
+button.prev {
+  left: 5%;
+}
+
+button.next {
+  right: 5%;
+}
+
+button.prev:hover, button.next:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+
+.slide-indicators {
+  text-align: center;
+  margin: 10px 0;
+  background-color: #ffffff;
+}
+
+.indicator {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 5px;
+  background: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.indicator.active {
+  background: #d1928f;
+}
+
+@media screen and (max-width: 768px)
+{
+  .faq-slide p {
+    font-size: 1rem;
+    max-width: 75%;
+    margin-left: 15%;
+    max-height: 160px;
+  }
+  .faq-slide h3{
+    font-size: 1.5rem;
+  }
 }
 
 
@@ -482,7 +578,8 @@ body {
   margin-bottom: 2rem;
 }
 
-#whatsapp_button, #instabutton {
+#whatsapp_button,
+#instabutton {
   font-size: 1.1rem;
   font-weight: bold;
   padding: 12px 20px;
@@ -504,12 +601,12 @@ body {
 }
 
 #instabutton {
-  background: linear-gradient(to right, #E1306C, #F58529);
+  background: linear-gradient(to right, #e1306c, #f58529);
   color: whitesmoke;
 }
 
 #instabutton:hover {
-  background: linear-gradient(to right, #F58529, #E1306C);
+  background: linear-gradient(to right, #f58529, #e1306c);
 }
 
 #contact_main h1 span {
@@ -548,7 +645,8 @@ body {
     gap: 1.5rem; /* Add spacing between form and contact sections */
   }
 
-  #form, #contact_main {
+  #form,
+  #contact_main {
     width: 90%; /* Take most of the screen width */
     max-width: 100%; /* Ensure no overflow */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for separation */
@@ -558,9 +656,9 @@ body {
     background-color: #fff; /* Keep white background for sections */
   }
 
-  #form input, 
-  #form select, 
-  #form textarea, 
+  #form input,
+  #form select,
+  #form textarea,
   #form button {
     width: 100%; /* Full width for inputs */
     height: 50px; /* Allow flexible height for smaller screens */
@@ -578,19 +676,19 @@ body {
     text-align: center; /* Center-align text content */
   }
 
-  #contact_main h1, 
+  #contact_main h1,
   #form h1 {
     font-size: 1.5rem; /* Adjust heading size for smaller screens */
     margin-bottom: 1rem; /* Add spacing below headings */
   }
 
-  #contact_main p, 
-  #contact_main span, 
+  #contact_main p,
+  #contact_main span,
   #form button {
     font-size: 1.7rem; /* Adjust font size for readability */
   }
 
-  #whatsapp_button, 
+  #whatsapp_button,
   #instabutton {
     width: 100%; /* Buttons take full width */
     padding: 0.75rem; /* Add padding for touch-friendly buttons */
@@ -606,15 +704,14 @@ body {
 }
 
 #submit {
-  background: linear-gradient(to right, #0F52BA, #4682B4);
+  background: linear-gradient(to right, #0f52ba, #4682b4);
 }
 
 #submit:hover {
-  background: linear-gradient(to right, #0D47A1, #3E7BBF); 
+  background: linear-gradient(to right, #0d47a1, #3e7bbf);
   cursor: pointer;
   transition: 0.3s;
 }
-
 
 /* General Footer Styles */
 #footer {
