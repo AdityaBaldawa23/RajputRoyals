@@ -128,9 +128,10 @@ document.querySelector("#home-btn").addEventListener("click", (event) => {
 // //document.getElementById("eventdate").value = today;
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("Script loaded and DOM is ready");
+document.getElementById("typewriter").style.width = "50px";
+document.getElementById("typewriter").style.height= "100px";
 
+document.addEventListener("DOMContentLoaded", function () {
   const words = ["Weddings", "Engagements", "Birthdays", "Receptions"];
   let wordIndex = 0;
   let charIndex = 0;

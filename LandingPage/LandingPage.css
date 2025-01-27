@@ -220,6 +220,24 @@ body {
   }
 }
 
+#typewriter {
+  min-height: 5px; /* Prevents the layout from shrinking */
+  /* display: inline-block; */
+  vertical-align: middle;
+  text-align: center;
+  border-right: 2px solid black; /* Optional cursor effect */
+  font-size: 2rem;
+  /* animation: blink 0.7s steps(1) infinite; */
+}
+
+@keyframes blink {
+  0%, 100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: black;
+  }
+}
 
 
 .divider {
@@ -244,10 +262,15 @@ body {
     font-size: 1.8rem; /* Adjusts font size for readability */
   }
 
+  #tag{
+    font-size: 1.5rem;
+  }
+
   .divider::before, .divider::after {
     margin: 3px; /* Reduces spacing around the divider lines */
   }
 }
+
 
 #triogrid {
   height: auto;
