@@ -43,89 +43,11 @@ document.querySelector("#home-btn").addEventListener("click", (event) => {
   });
 });
 
-// async function submitForm(event) {
-//   event.preventDefault(); // Prevent default form submission
+// Get the current date in YYYY-MM-DD format
+const today = new Date().toISOString().split("T")[0];
 
-//   // Reset error messages
-//   const errorMessages = document.querySelectorAll('.error');
-//   errorMessages.forEach((el) => (el.textContent = ''));
-
-//   const name = document.getElementById('name').value.trim();
-//   const number = document.getElementById('number').value.trim();
-//   const email = document.getElementById('email').value.trim();
-//   const eventDate = document.getElementById('eventdate').value.trim();
-//   const eventType = document.getElementById('type').value.trim();
-//   const message = document.getElementById('message').value.trim();
-
-//   let isValid = true;
-
-//   // Validation logic
-//   if (!name || name.length < 3) {
-//       document.getElementById('nameError').textContent = 'Name must be at least 3 characters long.';
-//       isValid = false;
-//   }
-//   if (!number || number.length < 10 || isNaN(number)) {
-//       document.getElementById('numberError').textContent = 'Enter a valid 10-digit mobile number.';
-//       isValid = false;
-//   }
-//   if (!email || !/\S+@\S+\.\S+/.test(email)) {
-//       document.getElementById('emailError').textContent = 'Enter a valid email address.';
-//       isValid = false;
-//   }
-//   if (!eventDate) {
-//       document.getElementById('dateError').textContent = 'Please select a valid event date.';
-//       isValid = false;
-//   }
-//   if (eventType === 'select') {
-//       document.getElementById('typeError').textContent = 'Please select an event type.';
-//       isValid = false;
-//   }
-//   if (message.length > 200) {
-//       document.getElementById('messageError').textContent = 'Message must not exceed 200 characters.';
-//       isValid = false;
-//   }
-
-//   if (!isValid) {
-//       return; // Stop submission if validation fails
-//   }
-
-//   // Show the loading spinner
-//   document.getElementById('loadingSpinner').style.display = 'block';
-
-//   try {
-//       const response = await fetch('https://your-backend-url/submit-form', {
-//           method: 'POST',
-//           headers: {
-//               'Content-Type': 'application/json',
-//           },
-//           body: JSON.stringify({ name, number, email, eventDate, eventType, message }),
-//       });
-
-//       const result = await response.json();
-
-//       // Hide the loading spinner
-//       document.getElementById('loadingSpinner').style.display = 'none';
-
-//       if (response.ok) {
-//           alert(result.message);
-//           document.getElementById('contactForm').reset(); // Reset the form
-//       } else {
-//           alert('Error: ' + result.error);
-//       }
-//   } catch (error) {
-//       // Hide the loading spinner
-//       document.getElementById('loadingSpinner').style.display = 'none';
-//       alert('Error submitting the form.');
-//   }
-// }
-
-
-
-// // Get the current date in YYYY-MM-DD format
-// const today = new Date().toISOString().split("T")[0];
-
-// // Set the value of the date input to the current date
-// //document.getElementById("eventdate").value = today;
+// Set the value of the date input to the current date
+document.getElementById("eventdate").value = today;
 
 
 document.getElementById("typewriter").style.width = "50px";
@@ -214,3 +136,40 @@ smoothScrollLinks.forEach(selector => {
         });
     }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  emailjs.init("Mwa-i-NHNt29dp3ur"); // Your public key
+
+  document.getElementById("contactForm").addEventListener("submit", sendEmail);
+});
+
+function sendEmail(e) {
+  e.preventDefault();
+
+  const formData = {
+    user_name: document.getElementById("name").value,
+    user_number: document.getElementById("number").value,
+    user_email: document.getElementById("email").value,
+    event_date: document.getElementById("eventdate").value,
+    event_type: document.getElementById("type").value,
+    message: document.getElementById("AdditionalMessage").value,
+  };
+
+  // 1️⃣ Send email to the admin (existing template)
+  emailjs
+    .send("service_uupdmgk", "template_37jaljf", formData, "Mwa-i-NHNt29dp3ur")
+    .then(() => console.log("Admin Email sent!"))
+    .catch((error) => console.error("Error sending admin email:", error.text));
+
+  // 2️⃣ Send acknowledgment email to the user (new template)
+  emailjs
+    .send("service_uupdmgk", "template_x4b5rht", formData, "Mwa-i-NHNt29dp3ur")
+    .then(() => {
+      console.log("User acknowledgment email sent!");
+      alert("Your query has been received. Please check your email!");
+    })
+    .catch((error) => console.error("Error sending acknowledgment email:", error.text));
+
+  // Reset the form
+  e.target.reset();
+}

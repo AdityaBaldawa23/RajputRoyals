@@ -8,6 +8,7 @@
     <link rel="icon" href="/favicon_io/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <title>Rajput Royals</title>
 </head>
 
@@ -180,25 +181,26 @@
     <div class="divider">Contact Us</div>
 
     <div id="section7">
-        <!-- <div id="form">
+        <div id="form">
             <h1 style="font-weight: bold;">Drop Us An Enquiry</h1>
-            <form id="contactForm" onsubmit="submitForm(event)">
-                <input type="text" id="name" placeholder="Enter Your Name" required> <br>
-                <input type="number" id="number" placeholder="Enter Your Mobile Number" required> <br>
-                <input type="email" id="email" placeholder="Enter your email id" required> <br>
-                <input type="date" id="eventdate" required> <br>
-                <select id="type" required>
+            <form id="contactForm" onsubmit="sendEmail(event)">
+                <input type="text" id="name" name="user_name" placeholder="Enter Your Name" required> <br><br>
+                <input type="number" id="number" name="user_number" placeholder="Enter Your Mobile Number" required> <br><br>
+                <input type="email" id="email" name="user_email" placeholder="Enter your email id" required> <br><br>
+                <input type="date" id="eventdate" name="event_date" required> <br><br>
+                <select id="type" name="event_type" required>
                     <option value="select" selected>Enter Your Event</option>
                     <option value="weddings">Wedding</option>
                     <option value="reception">Reception</option>
                     <option value="Engagement">Engagement</option>
                     <option value="birthday">Birthday</option>
                     <option value="other">Other</option>
-                </select><br>
-                <textarea placeholder="Additional Message..."></textarea> <br>
-                <button id="submit">Submit</button>
+                </select><br><br>
+                <textarea placeholder="Additional Message..." id="AdditionalMessage" name="message"></textarea> <br><br>
+                <button type="submit" id="submit">Submit</button>
             </form>
-        </div> -->
+        </div>
+        
 
         <div id="contact_main">
             <h1>It would be Great to See You in Person</h1>
@@ -210,6 +212,9 @@
             </a><br>
             <a href="https://www.instagram.com/rajputroyals_miraj/?hl=en">
                 <button id="instabutton" style="font-size: 1.1rem; font-weight: bold;">Follow Us on Instagram</button>
+            </a><br>
+            <a href="https://www.instagram.com/rajputroyals_miraj/?hl=en">
+                <button id="reviewbutton" style="font-size: 1.1rem; font-weight: bold;">Drop A Review for Us</button>
             </a>
             <h1><span>Rajput Royals,Miraj</span><br></h1>
             <p style="font-size: 1.3rem;">RJ9H+Q32 Rajput Royals, Kolhapur Road, Miraj,<br> Sangli Miraj Kupwad,

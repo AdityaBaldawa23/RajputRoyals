@@ -548,47 +548,50 @@ button.prev:hover, button.next:hover {
 
 #section7 {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-  padding: 1% 10%;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2% 8%;
+  border-radius: 12px;
+  /* box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); */
+  max-width: 1200px;
+  margin: auto;
 }
 
-#contact_main {
-  max-width: 600px;
+#contact_main, #form {
+  max-width: 550px;
   text-align: center;
-  padding: 20px;
-  background-color: #f5f1f1;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  /* height: 900px; */
 }
 
-#contact_main h1 {
-  color: #333;
+#contact_main h1, #form h1 {
+  color: #222;
   font-weight: bold;
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
 }
 
 #contact_main p {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: black;
-  line-height: 1.6;
+  line-height: 1.8;
   margin-bottom: 2rem;
 }
 
 #whatsapp_button,
-#instabutton {
-  font-size: 1.1rem;
+#instabutton, #reviewbutton {
+  font-size: 1.2rem;
   font-weight: bold;
-  padding: 12px 20px;
-  margin: 10px 0;
+  padding: 14px 22px;
+  margin: 12px 0;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s;
-  width: 100%;
+  transition: background-color 0.3s ease-in-out;
+  width: 90%;
 }
 
 #whatsapp_button {
@@ -609,9 +612,22 @@ button.prev:hover, button.next:hover {
   background: linear-gradient(to right, #f58529, #e1306c);
 }
 
+#reviewbutton{
+  background: linear-gradient(to right, #11998e, #38ef7d);
+  color: whitesmoke;
+  width:100%;
+}
+
+#reviewbutton:hover{
+  background: linear-gradient(to left, #11998e, #38ef7d);
+  color: whitesmoke;
+  width:100%;
+}
+
+
 #contact_main h1 span {
-  color: #333;
-  font-size: 1.5rem;
+  color: #222;
+  font-size: 1.6rem;
 }
 
 #contact_main p span {
@@ -620,19 +636,79 @@ button.prev:hover, button.next:hover {
 
 #contact_main .contact-info {
   margin-top: 3%;
-  font-size: 1.3rem;
-  color: #333;
+  font-size: 1.4rem;
+  color: #222;
 }
 
 #contact_main .contact-info p {
-  margin: 5px 0;
+  margin: 6px 0;
 }
 
 #contact_main .contact-info .phone-number {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: bold;
   color: #1a7f72;
 }
+
+@media screen and (min-width: 1024px) {
+  #section7 {
+    padding: 3% 12%;
+    max-width: 1400px;
+  }
+
+  #form,
+  #contact_main {
+    width: 45%;
+    max-width: 600px;
+    padding: 2rem;
+    height: fit-content;
+  }
+
+  #form input,
+  #form select,
+  #form textarea,
+  #form button {
+    width: 95%;
+    height: 55px;
+    font-size: 1rem;
+    margin: 0.7rem 0;
+  }
+
+  #form textarea {
+    height: 120px;
+  }
+
+  #contact_main h1,
+  #form h1 {
+    font-size: 2rem;
+  }
+
+  #contact_main p,
+  #contact_main span,
+  #form button {
+    font-size: 1.4rem;
+  }
+
+  #whatsapp_button,
+  #instabutton {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    border-radius: 6px;
+  }
+}
+
+#submit {
+  background: linear-gradient(to right, #0f52ba, #4682b4);
+}
+
+#submit:hover {
+  background: linear-gradient(to right, #0d47a1, #3e7bbf);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
 
 @media screen and (max-width: 600px) {
   #section7 {
