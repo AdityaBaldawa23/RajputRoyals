@@ -138,7 +138,7 @@ smoothScrollLinks.forEach(selector => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  emailjs.init("Mwa-i-NHNt29dp3ur"); // Your public key
+  emailjs.init("x_yufovpcBm7C1UWH"); // Your public key
 
   document.getElementById("contactForm").addEventListener("submit", sendEmail);
 });
@@ -157,13 +157,13 @@ function sendEmail(e) {
 
   // 1️⃣ Send email to the admin (existing template)
   emailjs
-    .send("service_uupdmgk", "template_37jaljf", formData, "Mwa-i-NHNt29dp3ur")
+    .send("service_0midm8h", "template_0u6rm9c", formData, "x_yufovpcBm7C1UWH")
     .then(() => console.log("Admin Email sent!"))
     .catch((error) => console.error("Error sending admin email:", error.text));
 
   // 2️⃣ Send acknowledgment email to the user (new template)
   emailjs
-    .send("service_uupdmgk", "template_x4b5rht", formData, "Mwa-i-NHNt29dp3ur")
+    .send("service_0midm8h", "template_tmlam98", formData, "x_yufovpcBm7C1UWH")
     .then(() => {
       console.log("User acknowledgment email sent!");
       alert("Your query has been received. Please check your email!");
