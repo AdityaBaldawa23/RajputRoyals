@@ -546,54 +546,59 @@ button.prev:hover, button.next:hover {
 }
 
 
+/* Section Container */
 #section7 {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 2% 8%;
+  padding: 3% 0;
+  width: 100%;
   border-radius: 12px;
-  /* box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); */
-  max-width: 1200px;
-  margin: auto;
+  gap: 50px; /* Space between form and contact section */
 }
 
+/* Contact & Form Containers */
 #contact_main, #form {
-  max-width: 550px;
+  max-width: 700px;
   text-align: center;
-  padding: 25px;
-  background-color: #ffffff;
+  padding: 35px;
+  background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  /* height: 900px; */
+  height: 1000px;
+  width: 45%;
 }
 
+/* Headings */
 #contact_main h1, #form h1 {
   color: #222;
   font-weight: bold;
-  font-size: 2.2rem;
-  margin-bottom: 1.5rem;
+  font-size: 2.8rem;
+  margin-bottom: 1.8rem;
 }
 
+/* Paragraph Styling */
 #contact_main p {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   color: black;
-  line-height: 1.8;
-  margin-bottom: 2rem;
+  line-height: 2;
+  margin-bottom: 2.5rem;
 }
 
-#whatsapp_button,
-#instabutton, #reviewbutton {
-  font-size: 1.2rem;
+/* Buttons */
+#whatsapp_button, #instabutton, #reviewbutton, #submit {
+  font-size: 1.9rem;
   font-weight: bold;
-  padding: 14px 22px;
-  margin: 12px 0;
+  padding: 16px 24px;
+  margin: 14px 0;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
   width: 90%;
 }
 
+/* WhatsApp Button */
 #whatsapp_button {
   background-color: #1a7f72;
   color: whitesmoke;
@@ -603,6 +608,7 @@ button.prev:hover, button.next:hover {
   background-color: #128c7e;
 }
 
+/* Instagram Button */
 #instabutton {
   background: linear-gradient(to right, #e1306c, #f58529);
   color: whitesmoke;
@@ -612,95 +618,79 @@ button.prev:hover, button.next:hover {
   background: linear-gradient(to right, #f58529, #e1306c);
 }
 
-#reviewbutton{
-  background: linear-gradient(to right, #11998e, #38ef7d);
+/* Review Button */
+#reviewbutton {
+  background: linear-gradient(180deg, #1e3c72, #2a5298, #3b8dbd);
   color: whitesmoke;
-  width:100%;
+  /* width: 100%; */
 }
 
-#reviewbutton:hover{
-  background: linear-gradient(to left, #11998e, #38ef7d);
-  color: whitesmoke;
-  width:100%;
+#reviewbutton:hover {
+  background: linear-gradient(360deg, #1e3c72, #2a5298, #3b8dbd);
 }
 
-
-#contact_main h1 span {
-  color: #222;
-  font-size: 1.6rem;
-}
-
-#contact_main p span {
-  font-weight: bold;
-}
-
+/* Contact Info */
 #contact_main .contact-info {
   margin-top: 3%;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: #222;
 }
 
 #contact_main .contact-info p {
-  margin: 6px 0;
+  margin: 8px 0;
 }
 
 #contact_main .contact-info .phone-number {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: bold;
   color: #1a7f72;
 }
 
+/* Responsive Design */
 @media screen and (min-width: 1024px) {
   #section7 {
-    padding: 3% 12%;
-    max-width: 1400px;
+    padding: 3% 0;
+    gap: 60px; /* Increased space for larger screens */
   }
 
-  #form,
-  #contact_main {
+  #form, #contact_main {
     width: 45%;
-    max-width: 600px;
-    padding: 2rem;
-    height: fit-content;
+    max-width: 850px;
+    padding: 2.5rem;
   }
 
-  #form input,
-  #form select,
-  #form textarea,
-  #form button {
+  #form input, #form select, #form textarea {
     width: 95%;
-    height: 55px;
-    font-size: 1rem;
-    margin: 0.7rem 0;
+    height: 60px;
+    font-size: 1.2rem;
+    margin: 0.8rem 0;
   }
 
   #form textarea {
-    height: 120px;
+    height: 140px;
   }
 
-  #contact_main h1,
-  #form h1 {
-    font-size: 2rem;
+  #contact_main h1, #form h1 {
+    font-size: 2.4rem;
   }
 
-  #contact_main p,
-  #contact_main span,
-  #form button {
-    font-size: 1.4rem;
-  }
 
-  #whatsapp_button,
-  #instabutton {
+  #whatsapp_button, #instabutton, #reviewbutton,#submit {
     width: 100%;
-    padding: 1rem;
-    font-size: 1.1rem;
-    margin-bottom: 1.2rem;
-    border-radius: 6px;
+    padding: 1.2rem;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
   }
 }
 
+/* Submit Button */
 #submit {
   background: linear-gradient(to right, #0f52ba, #4682b4);
+  font-size: 1.5rem;
+  width: 95%;
+  color: whitesmoke;
+  font-weight: bolder;
 }
 
 #submit:hover {
@@ -730,6 +720,7 @@ button.prev:hover, button.next:hover {
     padding: 1.5rem; /* Add padding inside the sections */
     margin: 0 auto; /* Center the sections */
     background-color: #fff; /* Keep white background for sections */
+    height: fit-content;
   }
 
   #form input,
@@ -765,7 +756,7 @@ button.prev:hover, button.next:hover {
   }
 
   #whatsapp_button,
-  #instabutton {
+  #instabutton, #reviewbutton,#submit {
     width: 100%; /* Buttons take full width */
     padding: 0.75rem; /* Add padding for touch-friendly buttons */
     font-size: 1rem; /* Adjust font size */
