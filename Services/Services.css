@@ -112,6 +112,11 @@ body {
 
 #line{
   margin-top: 70px;
+  background-color: #333;
+  /* width: fit-content; */
+  text-align: center;
+  color: #ddd;
+  align-items: center;
 }
 
 #section2 {
